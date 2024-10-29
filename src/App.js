@@ -1,26 +1,55 @@
-import logo from "./logo.svg";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { RouterPath } from "./utils/path";
+
+import Layout from "./components/Layout";
+import Main from "./pages/Main";
+import Login from "./pages/Login";
+import MyPage from "./pages/MyPage";
+import ConfigMyInfo from "./pages/ConfigMyInfo";
+import TeamBuilding from "./pages/TeamBuilding";
+import TeamInfo from "./pages/TeamInfo";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: RouterPath.main.path,
+        element: <Main />,
+      },
+      {
+        path: RouterPath.login.path,
+        element: <Login />,
+      },
+      {
+        path: RouterPath.mypage.path,
+        element: <MyPage />,
+      },
+      {
+        path: RouterPath.configMyInfo.path,
+        element: <ConfigMyInfo />,
+      },
+      {
+        path: RouterPath.teamBuilding.path,
+        element: <TeamBuilding />,
+      },
+      {
+        path: RouterPath.teamInfo.path,
+        element: <TeamInfo />,
+      },
+      {
+        path: RouterPath.notFound.path,
+        element: <div>not found~</div>
+      }
+    ]
+  }
+]);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
