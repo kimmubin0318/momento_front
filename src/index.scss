@@ -1,0 +1,59 @@
+@import 'reset-css';
+// flex 중앙정렬
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    // 색
+    --color-main: #756ab6; //임시 메인 컬러. 추후 바꿔야 해요
+
+    // 글자 크기
+    --font-size-large: 24px;
+    --font-size-base: 15px;
+    --font-size-small: 12px;
+    @media (max-width: 768px) {
+        --font-size-large: 21px;
+        --font-size-base: 12px;
+        --font-size-small: 9px;
+    }
+    margin: auto;
+    @media (min-width: 768px) {
+        width: 390px;
+    }
+}
+html {
+    @media (min-width: 768px) {
+        background: var(--bs-gray-900);
+    }
+}
+
+body {
+    @media (min-width: 768px) {
+        height: 844px;
+    }
+    overflow: hidden;
+    border-radius: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
