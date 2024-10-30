@@ -1,32 +1,34 @@
 export const RouterPath = {
-    main: {
-        path: "/",
-        getPath: () => RouterPath.main.path,
+    home: {
+        path: '/home',
+        getPath: () => RouterPath.home.path,
     },
     login: {
-        path: "/login",
+        path: '/login',
         getPath: (redirect) => {
             const currentRedirect = redirect ?? window.location.href;
-            return `${RouterPath.login.path}?redirect=${encodeURIComponent(currentRedirect)}`;
-        }
+            return `${RouterPath.login.path}?redirect=${encodeURIComponent(
+                currentRedirect
+            )}`;
+        },
     },
     mypage: {
-        path: "/mypage",
+        path: '/mypage',
         getPath: () => RouterPath.mypage.path,
     },
     configMyInfo: {
-        path: "/config-my-info",
+        path: '/config-my-info',
         getPath: () => RouterPath.configMyInfo.path,
     },
-    teamBuilding: {
-        path: "/team-building",
-        getPath: () => RouterPath.teamBuilding.path,
+    start: {
+        path: '/',
+        getPath: () => RouterPath.start.path,
     },
     teamInfo: {
-        path: "/team-info",
+        path: '/team-info',
         getPath: () => RouterPath.teamInfo.path,
     },
     notFound: {
-        path: "*"
-    }
-}
+        path: '*',
+    },
+};
