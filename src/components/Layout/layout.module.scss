@@ -39,11 +39,18 @@
 }
 .left {
     margin-left: -50px;
+    @extend %button-click;
 }
 .right {
     margin-left: 30px;
     @extend %flex-center;
     flex-direction: row;
-
     gap: 25px;
+
+    .teamInfo {
+        @extend %button-click;
+    }
+    .profile {
+        @extend %button-click;
+    }
 }

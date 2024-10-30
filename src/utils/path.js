@@ -1,4 +1,8 @@
 export const RouterPath = {
+    loading: {
+        path: 'loading',
+        getPath: () => RouterPath.loading.path,
+    },
     home: {
         path: '/home',
         getPath: () => RouterPath.home.path,
