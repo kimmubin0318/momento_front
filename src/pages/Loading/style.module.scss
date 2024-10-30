@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import '../../index.scss';
+.bodyContainer {
+}
+.AnimationContainer {
+    @extend %flex-center;
+
+    flex-wrap: wrap;
+    height: 110px;
+    width: 200px;
+    position: relative;
+    top: -20px;
+    .top {
+        display: flex;
+        gap: 10px;
+    }
+
+    .bottom {
+        margin-top: 5px;
+        position: relative;
+        left: 5px;
+    }
+}
+.loadingText {
+    height: 100px;
+    font-family: 'yg-jalnan';
+    font-weight: 800;
+    position: relative;
+    bottom: -300px;
+}

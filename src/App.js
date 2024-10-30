@@ -10,12 +10,16 @@ import MyPage from './pages/MyPage';
 import ConfigMyInfo from './pages/ConfigMyInfo';
 import TeamInfo from './pages/TeamInfo';
 import Start from './pages/Start';
-
+import Loading from './pages/Loading';
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
         children: [
+            {
+                path: RouterPath.loading.path,
+                element: <Loading />,
+            },
             {
                 path: RouterPath.start.path,
                 element: <Start />,

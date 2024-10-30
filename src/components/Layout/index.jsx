@@ -13,7 +13,7 @@ import style from './layout.module.scss';
 export default function Layout() {
     const navigate = useNavigate();
     const location = useLocation();
-    const hidePage = ['/', '/login'];
+    const hidePage = ['/', '/login', '/loading'];
     const navigateHome = () => {
         navigate('/home');
     };
@@ -25,8 +25,6 @@ export default function Layout() {
     };
     return (
         <div className={style.phoneFrame}>
-            {/* <header className="header">Header</header> */}
-            {/* 저희 해더가 없지 않나요? */}
             <div className={style.mainContent}>
                 <Outlet />
             </div>
@@ -43,14 +41,20 @@ export default function Layout() {
                         </button>
                     </div>
                     <div className={style.right}>
-                        <button onClick={navigateTeamInfo}>
+                        <button
+                            onClick={navigateTeamInfo}
+                            className={style.teamInfo}
+                        >
                             <img
                                 src={TeamInfoButton}
                                 alt="teamInfo"
                                 width="105%"
                             />
                         </button>
-                        <button onClick={navigateMyPage}>
+                        <button
+                            onClick={navigateMyPage}
+                            className={style.profile}
+                        >
                             <img src={Profile} alt="Profile" width="105%" />
                         </button>
                     </div>

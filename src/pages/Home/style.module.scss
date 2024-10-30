@@ -1,0 +1,6 @@
+@import '../../index.scss';
+.buttonContainer {
+    @extend %flex-center;
+    width: 300px;
+    flex-direction: column;
+}
