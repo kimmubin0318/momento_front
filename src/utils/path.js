@@ -22,7 +22,7 @@ export const RouterPath = {
     },
     start: {
         path: '/',
-        getPath: () => RouterPath.teamBuilding.path,
+        getPath: () => RouterPath.start.path,
     },
     teamInfo: {
         path: '/team-info',
