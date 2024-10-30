@@ -42,10 +42,10 @@ const router = createBrowserRouter([
       },
       {
         path: RouterPath.notFound.path,
-        element: <div>not found~</div>
-      }
-    ]
-  }
+        element: <div>not found~</div>,
+      },
+    ],
+  },
 ]);
 
 function App() {
