@@ -25,8 +25,8 @@
         font-size: var(--font-size-large);
     }
     .footer {
+        box-shadow: 2px 2px 8px black;
         height: 90px;
-        background-color: aqua;
         display: flex;
         flex-direction: row;
         padding: 20px;
@@ -36,4 +36,14 @@
             font-size: var(--font-size-small);
         }
     }
+}
+.left {
+    margin-left: -50px;
+}
+.right {
+    margin-left: 30px;
+    @extend %flex-center;
+    flex-direction: row;
+
+    gap: 25px;
 }

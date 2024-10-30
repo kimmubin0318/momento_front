@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import HomeButton from './images/HomeButton.png';
-import ListButton from './images/List.png';
+import TeamInfoButton from './images/List.png';
 import Profile from './images/Profile.png';
 import style from './layout.module.scss';
 /**
@@ -14,11 +14,15 @@ export default function Layout() {
     const navigate = useNavigate();
     const location = useLocation();
     const hidePage = ['/', '/login'];
-
     const navigateHome = () => {
         navigate('/home');
     };
-
+    const navigateTeamInfo = () => {
+        navigate('/team-info');
+    };
+    const navigateMyPage = () => {
+        navigate('/mypage');
+    };
     return (
         <div className={style.phoneFrame}>
             {/* <header className="header">Header</header> */}
@@ -29,7 +33,7 @@ export default function Layout() {
             {/* 스플화면에서는 보여지지 않게 하기 위해 */}
             {!hidePage.includes(location.pathname) && (
                 <div className={style.footer}>
-                    <div className="left">
+                    <div className={style.left}>
                         <button onClick={navigateHome}>
                             <img
                                 src={HomeButton}
@@ -38,15 +42,15 @@ export default function Layout() {
                             />
                         </button>
                     </div>
-                    <div className="right">
-                        <button>
+                    <div className={style.right}>
+                        <button onClick={navigateTeamInfo}>
                             <img
-                                src={ListButton}
-                                alt="ListButton"
+                                src={TeamInfoButton}
+                                alt="teamInfo"
                                 width="105%"
                             />
                         </button>
-                        <button>
+                        <button onClick={navigateMyPage}>
                             <img src={Profile} alt="Profile" width="105%" />
                         </button>
                     </div>
