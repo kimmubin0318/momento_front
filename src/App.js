@@ -4,12 +4,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { RouterPath } from "./utils/path";
 
 import Layout from "./components/Layout";
-import Main from "./pages/Main";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import ConfigMyInfo from "./pages/ConfigMyInfo";
-import TeamBuilding from "./pages/TeamBuilding";
 import TeamInfo from "./pages/TeamInfo";
+import Start from "./pages/Start";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +17,12 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: RouterPath.main.path,
-        element: <Main />,
+        path: RouterPath.start.path,
+        element: <Start />,
+      },
+      {
+        path: RouterPath.home.path,
+        element: <Home />,
       },
       {
         path: RouterPath.login.path,
@@ -32,10 +36,7 @@ const router = createBrowserRouter([
         path: RouterPath.configMyInfo.path,
         element: <ConfigMyInfo />,
       },
-      {
-        path: RouterPath.teamBuilding.path,
-        element: <TeamBuilding />,
-      },
+
       {
         path: RouterPath.teamInfo.path,
         element: <TeamInfo />,

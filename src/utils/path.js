@@ -1,7 +1,7 @@
 export const RouterPath = {
-  main: {
-    path: "/",
-    getPath: () => RouterPath.main.path,
+  home: {
+    path: "/home",
+    getPath: () => RouterPath.home.path,
   },
   login: {
     path: "/login",
@@ -20,9 +20,9 @@ export const RouterPath = {
     path: "/config-my-info",
     getPath: () => RouterPath.configMyInfo.path,
   },
-  teamBuilding: {
-    path: "/team-building",
-    getPath: () => RouterPath.teamBuilding.path,
+  start: {
+    path: "/",
+    getPath: () => RouterPath.start.path,
   },
   teamInfo: {
     path: "/team-info",
