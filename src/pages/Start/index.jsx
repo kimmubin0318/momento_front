@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from './logo';
-import './style.scss';
+import style from './style.module.scss';
 export default function StartPage() {
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export default function StartPage() {
     }, []);
 
     return (
-        <div className="LogoContainer">
+        <div className={style.LogoContainer}>
             <Logo />
         </div>
     );
