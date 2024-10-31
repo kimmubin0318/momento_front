@@ -11,6 +11,7 @@ import ConfigMyInfo from './pages/ConfigMyInfo';
 import TeamInfo from './pages/TeamInfo';
 import Start from './pages/Start';
 import Loading from './pages/Loading';
+import MyPageEdit from './pages/MyPageEdit';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: RouterPath.mypage.path,
                 element: <MyPage />,
+            },
+            {
+                path: RouterPath.mypageEdit.path,
+                element: <MyPageEdit />,
             },
             {
                 path: RouterPath.configMyInfo.path,

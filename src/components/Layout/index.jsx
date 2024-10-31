@@ -55,6 +55,7 @@ export default function Layout() {
                             onClick={navigateMyPage}
                             className={style.profile}
                         >
+                            {/* 서버에서 이미지 받아와서 넣을 예정 */}
                             <img src={Profile} alt="Profile" width="105%" />
                         </button>
                     </div>
