@@ -70,10 +70,20 @@ export default function MyPage() {
                 </div>
                 <div className={style.ability}>
                     <p>능력 :</p>
-                    <input
-                        type="text"
-                        onChange={(e) => setAbility(e.target.value)}
-                    />
+                    <>
+                        <label>
+                            상
+                            <input type="radio" name="ability" value="upper" />
+                        </label>
+                        <label>
+                            중
+                            <input type="radio" name="ability" value="middle" />
+                        </label>
+                        <label>
+                            하
+                            <input type="radio" name="ability" value="lower" />
+                        </label>
+                    </>
                 </div>
             </div>
         </div>

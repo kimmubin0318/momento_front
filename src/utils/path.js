@@ -28,7 +28,6 @@ export const RouterPath = {
         path: '/config-my-info',
         getPath: () => RouterPath.configMyInfo.path,
     },
-
     start: {
         path: '/',
         getPath: () => RouterPath.start.path,
