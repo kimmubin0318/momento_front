@@ -1,7 +1,7 @@
 import React from 'react';
 
 const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
-const REDIRECT_URI = 'https://moodfriend.vercel.app/auth/callback/kakao';
+const REDIRECT_URI = 'https://momento-front.vercel.app/config-my-info';
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 const handleKakaoLogin = () => {
