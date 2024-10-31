@@ -1,39 +1,49 @@
 import React, { useState } from "react";
 import { ProgressBar } from "react-bootstrap";
 
+import Question from "./Question";
 import questions from "./questions";
+import styles from "./index.module.scss";
 
 const ConfigMyInfo = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState({}); // 모든 질문을 상태로 관리
+  // TODO query param도 추가해야함
 
   const handleNext = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion === questions.length - 1) {
+      // TODO submit
+      return;
     }
+    setCurrentQuestion((v) => v + 1);
   };
-
-  // 답변을 저장하는 함수
-  const handleChange = (e) => {
-    setAnswers({
-      ...answers,
-      [questions[currentQuestion].name]: e.target.value,
-    });
+  const isAnswered = () => {
+    return answers[questions[currentQuestion].name];
   };
-
-  // 진행률 계산
-  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <>
+    <div className={styles.page}>
+      {/* TODO 유저 이름 정보 get */}
       <h3>OOO님에 대해 설명해주세요</h3>
 
-      <ProgressBar
-        now={progress}
-        label={`${Math.round(progress)}%`}
-        className="my-4"
+      <div>
+        <button
+          onClick={() => setCurrentQuestion((v) => v - 1)}
+          disabled={currentQuestion === 0}
+        >
+          &lt;
+        </button>
+        <ProgressBar now={((currentQuestion + 1) / questions.length) * 100} />
+        <button onClick={handleNext} disabled={!isAnswered()}>
+          &gt;
+        </button>
+      </div>
+      <Question
+        {...questions[currentQuestion]}
+        value={answers}
+        setValue={setAnswers}
       />
-    </>
+    </div>
   );
 };
 
