@@ -11,6 +11,7 @@ import ConfigMyInfo from './pages/ConfigMyInfo';
 import TeamInfo from './pages/TeamInfo';
 import Start from './pages/Start';
 import Loading from './pages/Loading';
+
 const router = createBrowserRouter([
     {
         path: '/',
