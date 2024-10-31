@@ -2,8 +2,8 @@
 .myPage {
     @extend %flex-center;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    @extend %width-height-100;
+
     gap: 0px;
 }
 .profile {

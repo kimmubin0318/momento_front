@@ -1,4 +1,8 @@
 export const RouterPath = {
+    teamBuilding: {
+        path: '/team-building',
+        getPath: () => RouterPath.teamBuilding.path,
+    },
     loading: {
         path: '/loading',
         getPath: () => RouterPath.loading.path,

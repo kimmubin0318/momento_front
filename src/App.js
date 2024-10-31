@@ -12,11 +12,16 @@ import TeamInfo from './pages/TeamInfo';
 import Start from './pages/Start';
 import Loading from './pages/Loading';
 import MyPageEdit from './pages/MyPageEdit';
+import TeamBuilding from './pages/TeamBuilding';
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
         children: [
+            {
+                path: RouterPath.teamBuilding.path,
+                element: <TeamBuilding />,
+            },
             {
                 path: RouterPath.loading.path,
                 element: <Loading />,
