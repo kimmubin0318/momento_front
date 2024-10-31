@@ -6,6 +6,10 @@
     font-weight: normal;
     font-style: normal;
 }
+%width-height-100 {
+    width: 100%;
+    height: 100%;
+}
 // mypage에 중복되는 코드
 %cancel-and-complete-button {
     position: relative;
