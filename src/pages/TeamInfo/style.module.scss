@@ -1,0 +1,93 @@
+@import '../../index.scss';
+.teamInfo {
+    @extend %flex-center;
+    @extend %width-height-100;
+    flex-direction: column;
+    .line {
+        height: 1%;
+        margin: 0;
+    }
+    .teamList {
+        @extend %flex-center;
+        flex-wrap: wrap;
+        gap: 5px;
+        width: 100%;
+        height: 15%;
+        padding: 20px 15px 0 15px;
+        .teamItem {
+            @extend %flex-center;
+            font-family: 'yg-jalnan';
+            font-size: 15px;
+            height: 34px;
+            max-width: 40%;
+            min-width: 12%;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 1.5px 1.5px 2px rgb(71, 71, 71);
+            background-color: rgb(218, 218, 218);
+            &:hover {
+                background-image: linear-gradient(
+                    to bottom,
+                    rgb(255, 255, 255),
+                    rgb(199, 199, 199),
+                    rgb(175, 175, 175)
+                );
+            }
+            &:active {
+                background-color: rgb(113, 113, 113);
+                position: relative;
+                top: 1px;
+                left: 1.5px;
+            }
+        }
+    }
+
+    .logo {
+        width: 100%;
+        height: 25.5%;
+        color: #756ab6;
+        @extend %flex-center;
+        font-family: 'yg-jalnan';
+        font-size: 40px;
+        flex-direction: column;
+        gap: 20px;
+
+        .teamName {
+            background-color: #d9d9d9;
+            @extend %flex-center;
+            height: 70px;
+            width: 250px;
+            border-radius: 20px;
+        }
+    }
+    .teamMemberInfo {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 59%;
+        width: 90%;
+        gap: 10px;
+
+        overflow: auto;
+        .memberList {
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+            padding-left: 20px;
+            width: 90%;
+            min-height: 20%;
+            border-radius: 16px;
+            border: 1px solid rgb(137, 137, 137);
+            .name {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .partMail {
+                font-size: 17px;
+                color: #555;
+            }
+        }
+    }
+}
