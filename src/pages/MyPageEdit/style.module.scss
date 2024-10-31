@@ -14,39 +14,30 @@
     height: 22%;
     width: 100%;
     gap: 30px;
-    .profileWord {
+    .cancel {
         @extend %flex-center;
-        width: 90px;
-        font-size: 20px;
-        color: #8c8c8c;
-        position: relative;
-        font-family: 'yg-jalnan';
-        top: -40px;
+        @extend %cancel-and-complete-button;
+        background-color: #b66262;
+        color: #b66262;
     }
     .profileImg {
         @extend %flex-center;
         border-radius: 100px;
         position: relative;
         top: 20px;
-
         width: 100px;
         height: 100px;
         background-color: #d9d9d9;
     }
-    .Button {
+    .complete {
+        @extend %cancel-and-complete-button;
         @extend %flex-center;
         background-color: #47a5a5;
-        position: relative;
-        width: 90px;
-        top: -40px;
-        height: 30px;
-        border-radius: 20px;
-        font-size: 15px;
+        color: #47a5a5;
     }
 }
 .word {
     @extend %flex-center;
-    color: #47a5a5;
     width: 93%;
     height: 81%;
     border-radius: 20px;
@@ -96,29 +87,36 @@
 }
 .mail {
     @extend %flex-center;
-
     input {
         width: 68%;
     }
 }
 .mbti {
     @extend %flex-center;
-
     input {
         width: 67%;
     }
 }
 .stack {
     @extend %flex-center;
-
     input {
         width: 57%;
     }
 }
 .ability {
     @extend %flex-center;
+    font-size: 16px;
+    height: 38.5px;
+    padding: 10px;
+    label {
+        @extend %flex-center;
+        gap: 10px;
 
-    input {
-        width: 70%;
+        width: 21%;
     }
+}
+input[type='radio'] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }

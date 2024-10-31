@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import style from './style.module.scss';
 import hr from './images/Line.png';
-import { useNavigate } from 'react-router-dom';
-export default function MyPage() {
+export default function MyPageEdit() {
     const [persona, setPersona] = useState('');
     const [stack, setStack] = useState('');
     const [ability, setAbility] = useState('');
     const router = useNavigate();
+
+    const backPage = () => {
+        router(-1);
+    };
     useEffect(() => {
         const baseUrl = '/api/v1/member';
         const endPoint = '/profile';
@@ -25,20 +29,18 @@ export default function MyPage() {
                 console.error(error.response.data.message);
             });
     });
-    const navigateEdit = () => {
-        router('/mypage-edit');
-    };
-
     return (
         <div className={style.myPage}>
             {/* 상단 프로필 */}
             <div className={style.profile}>
-                <div className={style.profileWord}>profile</div>
+                <button className={style.cancel} onClick={backPage}>
+                    <div className={style.word}>취소</div>
+                </button>
                 <div className={style.profileImg}>
                     {/* <img src={서버에서 받아오기} alt="" /> */}
                 </div>
-                <button className={style.Button} onClick={navigateEdit}>
-                    <div className={style.word}>정보수정</div>
+                <button className={style.complete} onClick={backPage}>
+                    <div className={style.word}>완료</div>
                 </button>
             </div>
             <div>
@@ -70,10 +72,20 @@ export default function MyPage() {
                 </div>
                 <div className={style.ability}>
                     <p>능력 :</p>
-                    <input
-                        type="text"
-                        onChange={(e) => setAbility(e.target.value)}
-                    />
+                    <>
+                        <label>
+                            상
+                            <input type="radio" name="ability" value="upper" />
+                        </label>
+                        <label>
+                            중
+                            <input type="radio" name="ability" value="middle" />
+                        </label>
+                        <label>
+                            하
+                            <input type="radio" name="ability" value="lower" />
+                        </label>
+                    </>
                 </div>
             </div>
         </div>

@@ -20,6 +20,10 @@ export const RouterPath = {
         path: '/mypage',
         getPath: () => RouterPath.mypage.path,
     },
+    mypageEdit: {
+        path: '/mypage-edit',
+        getPath: () => RouterPath.mypageedit.path,
+    },
     configMyInfo: {
         path: '/config-my-info',
         getPath: () => RouterPath.configMyInfo.path,

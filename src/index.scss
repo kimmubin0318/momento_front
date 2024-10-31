@@ -6,6 +6,16 @@
     font-weight: normal;
     font-style: normal;
 }
+%cancel-and-complete-button {
+    position: relative;
+    font-family: 'yg-jalnan';
+
+    width: 90px;
+    top: -40px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 15px;
+}
 // flex 중앙정렬
 %flex-center {
     display: flex;
