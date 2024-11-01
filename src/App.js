@@ -10,6 +10,7 @@ import MyPage from "./pages/MyPage";
 import ConfigMyInfo from "./pages/ConfigMyInfo";
 import TeamInfo from "./pages/TeamInfo";
 import Start from "./pages/Start";
+import Redirection from "./components/Login/Redirection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: RouterPath.login.path,
         element: <Login />,
+      },
+      {
+        path: RouterPath.Redirection.path,
+        element: <Redirection />,
       },
       {
         path: RouterPath.mypage.path,

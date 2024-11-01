@@ -1,7 +1,7 @@
-export default function TeamInfo() {
+export default function MyPage() {
   return (
     <div>
-      <h1>Team Info</h1>
+      <h1>TeamInfo</h1>
     </div>
   );
 }

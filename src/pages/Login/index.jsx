@@ -1,14 +1,14 @@
 import React from "react";
-import "./Login.scss";
-import Button from "../../components/LoginButton.jsx";
-import KLogoImage from "../../assets/Klogo.png";
-import picture from "../../assets/LoginPicture.png";
-import TeamLogo from "../../assets/Teamlogo.svg";
-import SNSlogo from "../../assets/SNS.svg";
+import Button from "../../components/Login/LoginButton.jsx";
+import KLogoImage from "./images/KloginBar.svg";
+import picture from "./images/LoginPicture.png";
+import TeamLogo from "./images/Teamlogo.svg";
+import SNSlogo from "./images/SNS.svg";
+import styles from "./Login.module.scss";
 
 export default function Login() {
-  const REST_API_KEY = "백엔드한테 달라고 하자1";
-  const REDIRECT_URI = "백엔드한테 달라고 하자2";
+  const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const loginHandler = () => {
@@ -17,24 +17,20 @@ export default function Login() {
 
   const buttonProps = [
     {
-      type: "login-kakao-button",
-      name: "카카오로 시작하기",
-      logo: "KLogo",
+      type: {},
       image: KLogoImage,
       click: loginHandler,
     },
   ];
 
   return (
-    <div className="login-container">
-      <img src={TeamLogo} alt="Team Up Logo" className="login-title" />
-      <img src={picture} alt="Login-picture" className="login-image" />
-      <img src={SNSlogo} alt="SNS text" className="login-SNS" />
+    <div className={styles.loginContainer}>
+      <img src={TeamLogo} alt="Team Up Logo" className={styles.loginTitle} />
+      <img src={picture} alt="Login-picture" className={styles.loginImage} />
+      <img src={SNSlogo} alt="SNS text" className={styles.loginSNS} />
       {buttonProps.map((button, i) => (
         <Button
-          type={button.type}
-          name={button.name}
-          logo={button.logo}
+          className={styles.loginKakaoButton}
           image={button.image}
           click={button.click}
           key={i}
