@@ -11,9 +11,8 @@ export default function ConfigMyInfo() {
             // 인가 코드를 백엔드에 보내서 토큰을 받아옴
             axios
                 .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
-
                 .then((response) => {
-                    if (response.statusCode === 0) {
+                    if (response.statusCode === 200) {
                         console.log('Access Token:', response.data.accessToken);
                         console.log(
                             'Refresh Token:',
