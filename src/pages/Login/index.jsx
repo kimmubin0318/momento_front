@@ -1,10 +1,10 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-
-const K_REST_API_KEY = process.env.REST_API_KEY;
-const K_REDIRECT_URL = process.env.REDIRECT_URI;
+const K_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+const K_REDIRECT_URL = process.env.REACT_APP_REDIRECT_URI;
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${K_REST_API_KEY}&redirect_uri=${K_REDIRECT_URL}&response_type=code`;
 
 export default function Login() {
+    // console.log(K_REST_API_KEY);
     const navigate = useNavigate();
     const location = useLocation();
     const redirectTo = new URLSearchParams(location.search).get('redirect');
