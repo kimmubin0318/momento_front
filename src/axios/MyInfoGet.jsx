@@ -16,6 +16,8 @@ export default function MyInfoGet() {
                 console.log(response);
 
                 const data = response.data;
+                console.log(data);
+
                 setName(data.name); // name
                 setMail(data.email); // email
                 setPersona(data.persona); // mbti
