@@ -1,0 +1,28 @@
+@import '../../index.scss';
+
+.AnimationContainer {
+    @extend %flex-center;
+
+    flex-wrap: wrap;
+    height: 110px;
+    width: 200px;
+    position: relative;
+    top: -20px;
+    .top {
+        display: flex;
+        gap: 10px;
+    }
+
+    .bottom {
+        margin-top: 5px;
+        position: relative;
+        left: 5px;
+    }
+}
+.loadingText {
+    height: 100px;
+    font-family: 'yg-jalnan';
+    font-weight: 800;
+    position: relative;
+    bottom: -300px;
+}

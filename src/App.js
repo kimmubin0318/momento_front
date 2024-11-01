@@ -11,12 +11,22 @@ import ConfigMyInfo from "./pages/ConfigMyInfo";
 import TeamInfo from "./pages/TeamInfo";
 import Start from "./pages/Start";
 import Redirection from "./components/Login/Redirection.jsx";
-
+import Loading from "./pages/Loading";
+import MyPageEdit from "./pages/MyPageEdit";
+import TeamBuilding from "./pages/TeamBuilding";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      {
+        path: RouterPath.teamBuilding.path,
+        element: <TeamBuilding />,
+      },
+      {
+        path: RouterPath.loading.path,
+        element: <Loading />,
+      },
       {
         path: RouterPath.start.path,
         element: <Start />,
@@ -36,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: RouterPath.mypage.path,
         element: <MyPage />,
+      },
+      {
+        path: RouterPath.mypageEdit.path,
+        element: <MyPageEdit />,
       },
       {
         path: RouterPath.configMyInfo.path,
