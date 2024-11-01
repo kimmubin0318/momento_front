@@ -11,6 +11,7 @@ export const RouterPath = {
         path: '/home',
         getPath: () => RouterPath.home.path,
     },
+
     login: {
         path: '/login',
         getPath: (redirect) => {
