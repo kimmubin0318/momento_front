@@ -12,12 +12,9 @@ export default function ConfigMyInfo() {
             axios
                 .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
                 .then((response) => {
+                    console.log('Access Token:', response.data.accessToken);
+                    console.log('Refresh Token:', response.data.refreshToken);
                     if (response.statusCode === 200) {
-                        console.log('Access Token:', response.data.accessToken);
-                        console.log(
-                            'Refresh Token:',
-                            response.data.refreshToken
-                        );
                         setTokenReceived(true); // 토큰 수신 완료
                         navigate('/config-my-info');
                     } else {
