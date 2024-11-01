@@ -15,7 +15,7 @@ export default function MyInfoGet() {
                 const response = await axios.get(baseUrl + endPoint);
                 console.log(response);
 
-                const data = response.data.data;
+                const data = response.data;
                 setName(data.name); // name
                 setMail(data.email); // email
                 setPersona(data.persona); // mbti
