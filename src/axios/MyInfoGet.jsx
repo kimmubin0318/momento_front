@@ -15,7 +15,7 @@ export default function MyInfoGet() {
                 const response = await axios.get(baseUrl + endPoint);
                 console.log(response);
 
-                const data = response.data;
+                const data = response.data.data;
                 console.log(data);
 
                 setName(data.name); // name
