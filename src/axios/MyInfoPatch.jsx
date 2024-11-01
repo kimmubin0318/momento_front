@@ -11,6 +11,8 @@ async function MyInfoPatch(changeData) {
             ability: changeData.changeAbility,
             stack: changeData.changeStack,
         });
+        console.log(response);
+
         return response.data;
     } catch (error) {
         console.error('Failed to update user info:', error);
