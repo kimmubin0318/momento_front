@@ -44,10 +44,12 @@
 
     // 글자 크기
     --font-size-large: 24px;
+    --font-size-large2: 20px;
     --font-size-base: 15px;
     --font-size-small: 12px;
     @media (max-width: 768px) {
         --font-size-large: 21px;
+        --font-size-large2: 18px;
         --font-size-base: 12px;
         --font-size-small: 9px;
     }
