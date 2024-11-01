@@ -20,6 +20,7 @@ export default function MyInfoGet() {
                 setPersona(data.persona); // mbti
                 setStack(data.stack); // 기술 스택
                 setAbility(data.ability); // 능력 ( 상 중 하 )
+                console.log(response);
             } catch (error) {
                 console.error(error.response.data.message);
             }
