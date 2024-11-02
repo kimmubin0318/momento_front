@@ -4,7 +4,7 @@ async function MyInfoPatch(changeData) {
     console.log(changeData);
 
     try {
-        const response = await fetchInstance().path(
+        const response = await fetchInstance().patch(
             'api/v1/member/update-profile',
             {
                 name: changeData.name,
