@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "stack",
+    "question": "기술 스택 입력"
+  },
+  {
+    "id": 2,
+    "name": "persona",
+    "question": "성격 설명 해주세요"
+  },
+  {
+    "id": 3,
+    "name": "ability",
+    "question": "뭘 할 수 있나요?"
+  }
+]

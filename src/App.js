@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { RouterPath } from './utils/path';
+import { RouterPath } from "./utils/path";
 
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -55,21 +55,20 @@ const router = createBrowserRouter([
                 path: RouterPath.configMyInfo.path,
                 element: <ConfigMyInfo />,
             },
-
-            {
-                path: RouterPath.teamInfo.path,
-                element: <TeamInfo />,
-            },
-            {
-                path: RouterPath.notFound.path,
-                element: <div>not found~</div>,
-            },
-        ],
-    },
+      {
+        path: RouterPath.teamInfo.path,
+        element: <TeamInfo />,
+      },
+      {
+        path: RouterPath.notFound.path,
+        element: <div>not found~</div>,
+      },
+    ],
+  },
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
