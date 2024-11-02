@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './style.module.scss';
 import line from '../MyPage/images/Line.png';
-import { dummyTeamList } from './dummyData';
 export default function TeamInfo() {
     const [selectedTeam, setSelectedTeam] = useState([]);
     useEffect(() => {
@@ -43,7 +42,7 @@ export default function TeamInfo() {
                 <div>Team,</div>
                 <div className={style.teamName}>
                     {selectedTeam
-                        ? dummyTeamList[selectedTeam].teamName
+                        ? selectedTeam[selectedTeam].teamName
                         : 'Name'}
                 </div>
             </div>
