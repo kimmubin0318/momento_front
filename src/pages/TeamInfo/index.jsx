@@ -1,35 +1,38 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import style from "./style.module.scss";
 import line from "../MyPage/images/Line.png";
+import { fetchInstance } from "../../axios/instance";
 export default function TeamInfo() {
-  const [selectedTeam, setSelectedTeam] = useState([]);
+  const [teams, setTeams] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseUrl = "/api/v1/member";
-        const endPoint = "/completed-profile";
-        const response = await axios.get(baseUrl + endPoint);
+        const response = await fetchInstance().get(
+          "api/v1/team/completed-profile"
+        );
 
         const data = response.data.data;
-        console.log(data);
-        setSelectedTeam(data);
+        setTeams([...data]);
       } catch (error) {
         console.error(error.response.data.message);
       }
     };
     fetchData();
-  });
+  }, []);
+
+  if (!teams) return <div>로딩중...</div>;
+  if (teams.length === 0) return <div>배정된 팀이 없습니다</div>;
 
   return (
     <div className={style.teamInfo}>
       <div className={style.teamList}>
         {/* 팀 리스트 */}
-        {Object.entries(selectedTeam).map(([key, team]) => (
+        {teams.map((team, index) => (
           <div
-            key={key}
+            key={index}
             className={style.teamItem}
-            onClick={() => setSelectedTeam(key)}
+            onClick={() => setSelectedTeam(index)}
           >
             <span>{team.teamName.substring(0, 7)}</span>
           </div>
@@ -40,10 +43,16 @@ export default function TeamInfo() {
       </div>
       <div className={style.logo}>
         <div>Team,</div>
-        <div className={style.teamName}>
-          {selectedTeam ? selectedTeam[selectedTeam].teamName : "Name"}
-        </div>
+        <div>{teams[selectedTeam].teamName}</div>
       </div>
+      {teams[selectedTeam].members.map((member, index) => (
+        <div key={index} className={style.memberList}>
+          <div className={style.name}>{member.name}</div>
+          <div className={style.partMail}>
+            {member.part} / {member.mail}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
