@@ -21,7 +21,7 @@ export const RouterPath = {
     },
   },
   Redirection: {
-    path: "config-my-info",
+    path: "/api/v1/auth/callback",
     getPath: () => RouterPath.Redirection.path,
   },
   mypage: {

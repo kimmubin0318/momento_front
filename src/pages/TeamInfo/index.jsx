@@ -1,7 +1,8 @@
 import { useState } from "react";
 import style from "./style.module.scss";
 import line from "../MyPage/images/Line.png";
-import exit from "./images/exit.png";
+import TeamSave from "./images/TeamSave.svg";
+
 export default function TeamInfo() {
   // 더미 데이터
   const dummyTeamList = {
@@ -25,7 +26,6 @@ export default function TeamInfo() {
     },
     team3: {
       teamName: "Momen",
-
       member: [
         { name: "john", part: "dev", mail: "john@example.com" },
         { name: "kimmubin", part: "back", mail: "kimmubin@gmail.com" },
@@ -36,7 +36,6 @@ export default function TeamInfo() {
       member: [
         { name: "john", part: "dev", mail: "john@example.com" },
         { name: "john", part: "dev", mail: "john@example.com" },
-
         { name: "jane", part: "marketing", mail: "jane@example.com" },
       ],
     },
@@ -45,7 +44,6 @@ export default function TeamInfo() {
       member: [
         { name: "john", part: "dev", mail: "john@example.com" },
         { name: "john", part: "dev", mail: "john@example.com" },
-
         { name: "jane", part: "marketing", mail: "jane@example.com" },
       ],
     },
@@ -59,13 +57,32 @@ export default function TeamInfo() {
     },
   };
 
+  const [teams, setTeams] = useState(dummyTeamList);
   const [selectedTeam, setSelectedTeam] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTeamName, setNewTeamName] = useState("");
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+    setNewTeamName(teams[selectedTeam].teamName);
+  };
+
+  const handleSaveClick = () => {
+    setTeams((prevTeams) => ({
+      ...prevTeams,
+      [selectedTeam]: {
+        ...prevTeams[selectedTeam],
+        teamName: newTeamName,
+      },
+    }));
+    setIsEditing(false);
+  };
 
   return (
     <div className={style.teamInfo}>
       <div className={style.teamList}>
         {/* 팀 리스트 */}
-        {Object.entries(dummyTeamList).map(([key, team]) => (
+        {Object.entries(teams).map(([key, team]) => (
           <div
             key={key}
             className={style.teamItem}
@@ -81,14 +98,25 @@ export default function TeamInfo() {
       <div className={style.logo}>
         <div>Team,</div>
         <div className={style.teamName}>
-          {selectedTeam ? dummyTeamList[selectedTeam].teamName : "Name"}
+          {isEditing ? (
+            <input
+              type="text"
+              value={newTeamName}
+              onChange={(e) => setNewTeamName(e.target.value)}
+              className={style.teamNameInput} // teamName과 동일한 스타일 적용
+            />
+          ) : (
+            <span onClick={handleEditClick} className={style.teamName}>
+              {selectedTeam ? teams[selectedTeam].teamName : "Name"}
+            </span>
+          )}
         </div>
       </div>
 
       {/* 선택한 팀의 멤버 정보 */}
       <div className={style.teamMemberInfo}>
-        {selectedTeam && dummyTeamList[selectedTeam].member ? (
-          dummyTeamList[selectedTeam].member.map((member, index) => (
+        {selectedTeam && teams[selectedTeam].member ? (
+          teams[selectedTeam].member.map((member, index) => (
             <div key={index} className={style.memberList}>
               <div className={style.name}>{member.name}</div>
               <div className={style.partMail}>
@@ -99,6 +127,12 @@ export default function TeamInfo() {
         ) : (
           <div>팀을 선택해주세요</div>
         )}
+      </div>
+
+      <div className={style.saveButtonContainer}>
+        <button onClick={handleSaveClick} className={style.saveButton}>
+          <img src={TeamSave} alt="저장하기" />
+        </button>
       </div>
     </div>
   );
