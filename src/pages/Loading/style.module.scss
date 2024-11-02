@@ -3,11 +3,7 @@
 .AnimationContainer {
     @extend %flex-center;
 
-    flex-wrap: wrap;
-    height: 110px;
-    width: 200px;
-    position: relative;
-    top: -20px;
+    flex-direction: column;
     .top {
         display: flex;
         gap: 10px;
@@ -15,14 +11,22 @@
 
     .bottom {
         margin-top: 5px;
-        position: relative;
-        left: 5px;
+        margin-left: 9px;
     }
 }
 .loadingText {
+    text-align: center;
     height: 100px;
     font-family: 'yg-jalnan';
     font-weight: 800;
     position: relative;
     bottom: -300px;
+    a{
+        line-height: 1.5;
+        color: var(--color-main);
+    }
+}
+.description {
+    padding: 0.3rem;
+    font-size: var(--font-size-small);
 }

@@ -25,7 +25,7 @@ export default function TeamBuilding() {
           .post("api/v1/team/building", data)
           .then(() => {
             alert("저장되었습니다.");
-            navigate(RouterPath.home.getPath());
+            navigate(RouterPath.loading.getPath());
           })
           .catch(() => {
             alert("저장에 실패했습니다.");
