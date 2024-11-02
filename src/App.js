@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import { RouterPath } from './utils/path';
 
 import Layout from './components/Layout';

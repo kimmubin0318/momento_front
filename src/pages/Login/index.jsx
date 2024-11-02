@@ -1,3 +1,8 @@
+import KloginBar from './images/KloginBar.svg';
+import logo from './images/logo.svg';
+import word from './images/word.svg';
+import teamup from './images/TeamUp.svg';
+import style from './Login.module.scss';
 export default function Login() {
     const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
     const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
@@ -7,5 +12,18 @@ export default function Login() {
         window.location.href = link;
     };
 
-    return <button onClick={loginHandler}>로그인</button>;
+    return (
+        <div className={style.loginContainer}>
+            <img src={teamup} alt="teamUp logo" className={style.loginTitle} />
+            <img src={logo} alt="puzzle logo" className={style.loginTitle} />
+            <img src={word} alt="" className={style.loginSNS} />
+            <button onClick={loginHandler}>
+                <img
+                    src={KloginBar}
+                    alt=""
+                    className={style.loginKakaoButton}
+                />
+            </button>
+        </div>
+    );
 }
