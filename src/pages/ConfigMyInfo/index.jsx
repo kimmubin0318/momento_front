@@ -33,12 +33,14 @@ const ConfigMyInfo = () => {
   const handleMove = (step) => {
     if (currentQuestion + step === questions.length) {
       fetchInstance()
-        .post("/member/complete-profile", answers)
+        .put("api/v1/member/complete-profile", answers)
         .then(() => {
           sessionStorage.removeItem(storageKey);
           navigate(RouterPath.home.getPath());
         })
         .catch((err) => {
+          if (err.response.status === 400)
+            alert("프로필이 이미 작성되었습니다.");
           alert("프로필 작성에 실패했습니다. 다시 시도해주세요.");
           navigate(RouterPath.configMyInfo.getPath());
         });

@@ -15,7 +15,7 @@ const initInstance = (config) => {
     return instance;
 };
 
-const BASE_URL = 'https://duoh.site/api/v1';
+const BASE_URL = 'https://duoh.site/';
 export const fetchInstance = (baseURL) => {
     return initInstance({
         baseURL: baseURL ?? BASE_URL,
