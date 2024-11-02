@@ -12,9 +12,7 @@ const Redirection = () => {
             console.log('Sending code to backend:', code);
             // GET 요청으로 쿼리스트링에 인가 코드 포함
             axios
-                .get(
-                    'https://duoh.site/api/v1/auth/callback?code=VTS4GY0TT9ARXQ8i4ERfcVy2tr87L0ZgHC2oLVc2QM7VimEowIfk3wAAAAQKKwymAAABkuy1TiAtjdRiIM79qQ'
-                )
+                .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
                 .then((response) => {
                     console.log(
                         'Response from server:',
@@ -31,7 +29,7 @@ const Redirection = () => {
                     navigate('/config-my-info'); // 로그인 후 이동할 페이지
                 })
                 .catch((error) => {
-                    console.error('카카오 로그인 실패:', error.ㄱㄷㄴ);
+                    console.error('카카오 로그인 실패:', error.response);
                     alert('로그인 중 오류가 발생했습니다.');
                 });
         } else {
