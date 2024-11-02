@@ -11,7 +11,6 @@ export const RouterPath = {
         path: '/home',
         getPath: () => RouterPath.home.path,
     },
-
     login: {
         path: '/login',
         getPath: (redirect) => {
@@ -20,6 +19,10 @@ export const RouterPath = {
                 currentRedirect
             )}`;
         },
+    },
+    Redirection: {
+        path: '/api/v1/auth/callback',
+        getPath: () => RouterPath.Redirection.path,
     },
     mypage: {
         path: '/mypage',

@@ -5,6 +5,7 @@ import axios from 'axios';
 const Redirection = () => {
     const code = new URLSearchParams(window.location.search).get('code'); // 인가 코드 추출
     const navigate = useNavigate();
+    console.log(code);
 
     useEffect(() => {
         if (code) {
