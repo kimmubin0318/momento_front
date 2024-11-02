@@ -7,7 +7,7 @@ const K_REDIRECT_URL = process.env.REACT_APP_REDIRECT_URI;
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${K_REST_API_KEY}&redirect_uri=${K_REDIRECT_URL}&response_type=code`;
 
 // 로그인 컴포넌트
-export function Login() {
+export default function Login() {
     const handleKaKaoLogin = () => {
         window.location.href = kakaoURL;
     };
