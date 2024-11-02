@@ -13,12 +13,7 @@ export const RouterPath = {
     },
     login: {
         path: '/login',
-        getPath: (redirect) => {
-            const currentRedirect = redirect ?? window.location.href;
-            return `${RouterPath.login.path}?redirect=${encodeURIComponent(
-                currentRedirect
-            )}`;
-        },
+        getPath: () => RouterPath.login.path,
     },
     Redirection: {
         path: '/redirection',

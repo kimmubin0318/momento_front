@@ -1,5 +1,6 @@
 import style from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
+import { RouterPath } from "../../utils/path";
 import icon from "../../assets/icon.png";
 export default function Home() {
   const navigate = useNavigate();
@@ -9,7 +10,10 @@ export default function Home() {
       <div>
         <img src={icon} alt="" width="150" />
       </div>
-      <button className={style.button} onClick={() => navigate("/loading")}>
+      <button
+        className={style.button}
+        onClick={() => navigate(RouterPath.teamBuilding.getPath())}
+      >
         Team Up
       </button>
     </div>
