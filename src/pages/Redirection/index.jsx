@@ -1,30 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
-import { fetchInstance } from "../../axios/instance";
-import { RouterPath } from "../../utils/path";
+import axios from "axios";
 
 const Redirection = () => {
-  const code = new URLSearchParams(window.location.search).get("code"); // 인가 코드 추출
   const navigate = useNavigate();
+  const code = new URLSearchParams(window.location.search).get("code"); // 인가 코드 추출
   console.log(code);
 
   useEffect(() => {
     if (code) {
       console.log("Sending code to backend:", code);
       // GET 요청으로 쿼리스트링에 인가 코드 포함
-      fetchInstance()
-        .get(`api/v1/auth/callback?code=${code}`)
+      axios
+        .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
         .then((response) => {
           console.log("Response from server:", response.status, response.data);
-
           // 응답에서 엑세스 토큰이나 사용자 이름을 받아 로컬에 저장
           localStorage.setItem("accessToken", response.data.accessToken);
-
-          navigate(RouterPath.configMyInfo.getPath()); // 로그인 후 이동할 페이지
+          navigate("/config-my-info"); // 로그인 후 이동할 페이지
         })
         .catch((error) => {
-          console.error("카카오 로그인 실패:", error);
+          console.error("카카오 로그인 실패:", error.response);
           alert("로그인 중 오류가 발생했습니다.");
         });
     } else {
