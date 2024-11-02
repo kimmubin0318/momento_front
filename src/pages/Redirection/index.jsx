@@ -12,7 +12,7 @@ const Redirection = () => {
             console.log('Sending code to backend:', code);
             // GET 요청으로 쿼리스트링에 인가 코드 포함
             axios
-                .get(`http://duoh.site/api/v1/auth/callback?code=${code}`)
+                .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
                 .then((response) => {
                     console.log(
                         'Response from server:',
