@@ -3,8 +3,11 @@ import { Form, Button } from "react-bootstrap";
 import styles from "./index.module.scss";
 import icon from "../../assets/icon.png";
 import { fetchInstance } from "../../axios/instance";
+import { useNavigate } from "react-router-dom";
+import { RouterPath } from "../../utils/path";
 
 export default function TeamBuilding() {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,6 +25,7 @@ export default function TeamBuilding() {
           .post("api/v1/team/building", data)
           .then(() => {
             alert("저장되었습니다.");
+            navigate(RouterPath.home.getPath());
           })
           .catch(() => {
             alert("저장에 실패했습니다.");
