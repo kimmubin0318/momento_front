@@ -4,22 +4,24 @@
   @extend %flex-center;
   padding: 20px;
   flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  .loginTitle {
-    margin-bottom: 20%;
-  }
+    .loginTitle {
+        margin-bottom: 20%;
+    }
 
-  .loginImage {
-    width: 111%;
-    margin-bottom: 20%;
-  }
+    .loginImage {
+        width: 111%;
+        margin-bottom: 20%;
+    }
 
-  .loginKakaoButton {
-    width: 350px;
-    height: 52px;
-  }
+    .loginKakaoButton {
+        width: 350px;
+        height: 52px;
+    }
 
-  .loginSNS {
-    margin-bottom: 5%;
-  }
+    .loginSNS {
+        margin-bottom: 5%;
+    }
 }

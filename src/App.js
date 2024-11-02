@@ -3,59 +3,58 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { RouterPath } from "./utils/path";
 
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import MyPage from "./pages/MyPage";
-import ConfigMyInfo from "./pages/ConfigMyInfo";
-import TeamInfo from "./pages/TeamInfo";
-import Start from "./pages/Start";
-import Redirection from "./components/Login/Redirection.jsx";
-import Loading from "./pages/Loading";
-import MyPageEdit from "./pages/MyPageEdit";
-import TeamBuilding from "./pages/TeamBuilding";
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import MyPage from './pages/MyPage';
+import ConfigMyInfo from './pages/ConfigMyInfo';
+import TeamInfo from './pages/TeamInfo';
+import Start from './pages/Start';
+import Redirection from './components/Login/Redirection.jsx';
+import Loading from './pages/Loading';
+import MyPageEdit from './pages/MyPageEdit';
+import TeamBuilding from './pages/TeamBuilding';
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: RouterPath.teamBuilding.path,
-        element: <TeamBuilding />,
-      },
-      {
-        path: RouterPath.loading.path,
-        element: <Loading />,
-      },
-      {
-        path: RouterPath.start.path,
-        element: <Start />,
-      },
-      {
-        path: RouterPath.home.path,
-        element: <Home />,
-      },
-      {
-        path: RouterPath.login.path,
-        element: <Login />,
-      },
-      {
-        path: RouterPath.Redirection.path,
-        element: <Redirection />,
-      },
-      {
-        path: RouterPath.mypage.path,
-        element: <MyPage />,
-      },
-      {
-        path: RouterPath.mypageEdit.path,
-        element: <MyPageEdit />,
-      },
-      {
-        path: RouterPath.configMyInfo.path,
-        element: <ConfigMyInfo />,
-      },
-
+    {
+        path: '/',
+        element: <Layout />,
+        children: [
+            {
+                path: RouterPath.teamBuilding.path,
+                element: <TeamBuilding />,
+            },
+            {
+                path: RouterPath.loading.path,
+                element: <Loading />,
+            },
+            {
+                path: RouterPath.start.path,
+                element: <Start />,
+            },
+            {
+                path: RouterPath.home.path,
+                element: <Home />,
+            },
+            {
+                path: RouterPath.login.path,
+                element: <Login />,
+            },
+            {
+                path: RouterPath.Redirection.path,
+                element: <Redirection />,
+            },
+            {
+                path: RouterPath.mypage.path,
+                element: <MyPage />,
+            },
+            {
+                path: RouterPath.mypageEdit.path,
+                element: <MyPageEdit />,
+            },
+            {
+                path: RouterPath.configMyInfo.path,
+                element: <ConfigMyInfo />,
+            },
       {
         path: RouterPath.teamInfo.path,
         element: <TeamInfo />,

@@ -1,0 +1,29 @@
+@import "/src/index.scss";
+
+.date{
+  @extend %flex-center;  
+    gap: 0.3rem;
+}
+.form{
+    label{
+        font-size: var(--font-size-base);
+        margin-bottom: 0.5rem;
+        margin-top: 1.5rem;
+    }
+    input, textarea{
+        border: none;
+        background-color: #d9d9d9;
+    }
+    button{
+        width: 100%;
+        margin: 2rem 0;
+    }
+}
+.examble{
+    font-size: var(--font-size-small);
+    margin-bottom: 0.5rem;
+    color: gray;
+}
+.icon{
+  @extend %flex-center;  
+}

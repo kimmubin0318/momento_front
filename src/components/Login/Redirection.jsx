@@ -1,25 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "axios";
+
+import { fetchInstance } from "../../axios/instance";
+import { RouterPath } from "../../utils/path";
 
 const Redirection = () => {
   const code = new URLSearchParams(window.location.search).get("code"); // 인가 코드 추출
   const navigate = useNavigate();
+  console.log(code);
 
   useEffect(() => {
     if (code) {
       console.log("Sending code to backend:", code);
-
       // GET 요청으로 쿼리스트링에 인가 코드 포함
-      axios
-        .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
+      fetchInstance()
+        .get(`api/v1/auth/callback?code=${code}`)
         .then((response) => {
           console.log("Response from server:", response.status, response.data);
 
           // 응답에서 엑세스 토큰이나 사용자 이름을 받아 로컬에 저장
           localStorage.setItem("accessToken", response.data.accessToken);
 
-          navigate("/ConfigMyInfo"); // 로그인 후 이동할 페이지
+          navigate(RouterPath.configMyInfo.getPath()); // 로그인 후 이동할 페이지
         })
         .catch((error) => {
           console.error("카카오 로그인 실패:", error);

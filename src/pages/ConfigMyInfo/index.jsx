@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { ProgressBar } from "react-bootstrap";
 
+import { RouterPath } from "../../utils/path";
 import Question from "./Question";
 import questions from "./questions";
 import styles from "./index.module.scss";
+import { fetchInstance } from "../../axios/instance";
 
 const ConfigMyInfo = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -30,9 +32,18 @@ const ConfigMyInfo = () => {
 
   const handleMove = (step) => {
     if (currentQuestion + step === questions.length) {
-      // TODO submit
-      sessionStorage.removeItem(storageKey);
-      navigate("/home");
+      fetchInstance()
+        .put("api/v1/member/complete-profile", answers)
+        .then(() => {
+          sessionStorage.removeItem(storageKey);
+          navigate(RouterPath.home.getPath());
+        })
+        .catch((err) => {
+          if (err.response.status === 400)
+            alert("프로필이 이미 작성되었습니다.");
+          alert("프로필 작성에 실패했습니다. 다시 시도해주세요.");
+          navigate(RouterPath.configMyInfo.getPath());
+        });
       return;
     }
 
