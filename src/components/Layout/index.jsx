@@ -13,7 +13,7 @@ import style from './layout.module.scss';
 export default function Layout() {
     const navigate = useNavigate();
     const location = useLocation();
-    const hidePage = ['/', '/login', '/loading'];
+    const hidePage = ['/', '/login', '/loading','/config-my-info'];
     const navigateHome = () => {
         navigate('/home');
     };
