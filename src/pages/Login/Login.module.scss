@@ -1,0 +1,25 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .loginTitle {
+        margin-bottom: 20%;
+    }
+
+    .loginImage {
+        width: 111%;
+        margin-bottom: 20%;
+    }
+
+    .loginKakaoButton {
+        width: 350px;
+        height: 52px;
+    }
+
+    .loginSNS {
+        margin-bottom: 5%;
+    }
+}
