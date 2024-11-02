@@ -10,7 +10,6 @@ const Redirection = () => {
     useEffect(() => {
         if (code) {
             console.log('Sending code to backend:', code);
-
             // GET 요청으로 쿼리스트링에 인가 코드 포함
             axios
                 .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
@@ -27,10 +26,10 @@ const Redirection = () => {
                         response.data.accessToken
                     );
 
-                    navigate('/home'); // 로그인 후 이동할 페이지
+                    navigate('/config-my-info'); // 로그인 후 이동할 페이지
                 })
                 .catch((error) => {
-                    console.error('카카오 로그인 실패:', error);
+                    console.error('카카오 로그인 실패:', error.response);
                     alert('로그인 중 오류가 발생했습니다.');
                 });
         } else {

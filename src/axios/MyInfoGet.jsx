@@ -10,10 +10,9 @@ export default function MyInfoGet() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const baseUrl = '/api/v1/member';
+                const baseUrl = 'https://duoh.site/api/v1/member';
                 const endPoint = '/profile';
                 const response = await axios.get(baseUrl + endPoint);
-                console.log(response);
 
                 const data = response.data.data;
                 console.log(data);
