@@ -9,7 +9,7 @@ export default function StartPage() {
     const navigateLogin = () => {
         setTimeout(() => {
             navigate('/login');
-        }, 3500);
+        }, 1000000);
     };
     // useEffect를 사용하여 페이지가 렌더링 되면 함수 시작
     useEffect(() => {

@@ -1,14 +1,14 @@
-@import "reset-css";
+@import 'reset-css';
 @font-face {
-  font-family: "yg-jalnan";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'yg-jalnan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 %width-height-100 {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 // mypage 와 mypage-edit 중복
 %mypage-common {
@@ -54,31 +54,31 @@
 
 // mypage에 중복되는 코드
 %cancel-and-complete-button {
-  position: relative;
-  font-family: "yg-jalnan";
+    position: relative;
+    font-family: 'yg-jalnan';
 
-  width: 90px;
-  top: -40px;
-  height: 30px;
-  border-radius: 20px;
-  font-size: 15px;
+    width: 90px;
+    top: -40px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 15px;
 }
 
 // flex 중앙정렬
 %flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 %button-click {
-  &:hover {
-    opacity: 0.85;
-    transform: scale(0.99);
-  }
-  &:active {
-    opacity: 0.8;
-    transform: scale(0.98);
-  }
+    &:hover {
+        opacity: 0.85;
+        transform: scale(0.99);
+    }
+    &:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
 }
 %div-common {
     font-family: 'yg-jalnan';
@@ -98,9 +98,8 @@
     border-radius: 8px;
 }
 :root {
-  // 색
-  --color-main: #756ab6; //임시 메인 컬러. 추후 바꿔야 해요
-
+    // 색
+    --color-main: #756ab6; //임시 메인 컬러. 추후 바꿔야 해요
 
     // 글자 크기
     --font-size-large: 24px;
@@ -120,30 +119,30 @@
 }
 
 html {
-  @media (min-width: 768px) {
-    background: var(--bs-gray-900);
-  }
+    @media (min-width: 768px) {
+        background: var(--bs-gray-900);
+    }
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "yg-jalnan", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, 'yg-jalnan', 'Segoe UI',
+        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 button {
-  background: none;
-  border: none;
-  padding: 0;
+    background: none;
+    border: none;
+    padding: 0;
 }
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }

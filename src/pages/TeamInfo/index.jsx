@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './style.module.scss';
 import line from '../MyPage/images/Line.png';
-import exit from './images/exit.png';
 import { dummyTeamList } from './dummyData';
 export default function TeamInfo() {
     const [selectedTeam, setSelectedTeam] = useState(null);
@@ -36,21 +35,21 @@ export default function TeamInfo() {
                 </div>
             </div>
 
-      {/* 선택한 팀의 멤버 정보 */}
-      <div className={style.teamMemberInfo}>
-        {selectedTeam && dummyTeamList[selectedTeam].member ? (
-          dummyTeamList[selectedTeam].member.map((member, index) => (
-            <div key={index} className={style.memberList}>
-              <div className={style.name}>{member.name}</div>
-              <div className={style.partMail}>
-                {member.part} / {member.mail}
-              </div>
+            {/* 선택한 팀의 멤버 정보 */}
+            <div className={style.teamMemberInfo}>
+                {selectedTeam && dummyTeamList[selectedTeam].member ? (
+                    dummyTeamList[selectedTeam].member.map((member, index) => (
+                        <div key={index} className={style.memberList}>
+                            <div className={style.name}>{member.name}</div>
+                            <div className={style.partMail}>
+                                {member.part} / {member.mail}
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <div>팀을 선택해주세요</div>
+                )}
             </div>
-          ))
-        ) : (
-          <div>팀을 선택해주세요</div>
-        )}
-      </div>
-    </div>
-  );
+        </div>
+    );
 }
