@@ -18,6 +18,8 @@ const ConfigMyInfo = () => {
     const { name } = MyInfoGet();
 
     useEffect(() => {
+        console.log(name);
+
         // question_num(query params) 관련
         const questionNum = searchParams.get(queryKey);
         if (questionNum) {
