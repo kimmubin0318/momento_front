@@ -6,7 +6,7 @@ import Question from './Question';
 import questions from './questions';
 import styles from './index.module.scss';
 import MyInfoGet from '../../axios/MyInfoGet';
-import fetchInstance from '../../axios/instance.js';
+import { fetchInstance } from '../../axios/instance.js';
 import RouterPath from '../../utils/path.js';
 const ConfigMyInfo = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
