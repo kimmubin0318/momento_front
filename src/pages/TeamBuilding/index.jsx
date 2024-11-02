@@ -2,17 +2,34 @@ import { Form, Button } from "react-bootstrap";
 
 import styles from "./index.module.scss";
 import icon from "../../assets/icon.png";
+import { fetchInstance } from "../../axios/instance";
 
 export default function TeamBuilding() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      e.target.startDate.value,
-      e.target.endDate.value,
-      e.target.teamSize.value,
-      e.target.myPosition.value,
-      e.target.positionCombination.value
-    );
+
+    const data = {
+      startDate: e.target.startDate.value,
+      endDate: e.target.endDate.value,
+      teamSize: e.target.teamSize.value,
+      myPosition: e.target.myPosition.value,
+      positionCombination: e.target.positionCombination.value,
+    };
+    fetchInstance()
+      .post("api/v1/team/check-duplicate")
+      .then(() => {
+        fetchInstance()
+          .post("api/v1/team/building", data)
+          .then(() => {
+            alert("저장되었습니다.");
+          })
+          .catch(() => {
+            alert("저장에 실패했습니다.");
+          });
+      })
+      .catch(() => {
+        alert("중복된 팀 빌딩 요청이 있습니다. 다음 날에 다시 시도해주세요");
+      });
   };
 
   return (
