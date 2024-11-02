@@ -11,7 +11,7 @@ export default function ConfigMyInfo() {
             axios
                 .get(`https://duoh.site/api/v1/auth/callback?code=${code}`)
                 .then((response) => {
-                    if (response.status === 200) {
+                    if (response.data.statusCode) {
                         setTokenReceived(true); // 토큰 수신 완료
                         navigate('/config-my-info');
                     } else {
