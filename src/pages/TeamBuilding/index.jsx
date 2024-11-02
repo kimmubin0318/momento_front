@@ -20,19 +20,26 @@ export default function TeamBuilding() {
     };
     fetchInstance()
       .post("api/v1/team/check-duplicate")
-      .then(() => {
+      .then((res) => {
+        if (res.data.message === "true") {
+          alert("중복된 팀 빌딩 요청이 있습니다. 다음 날에 다시 시도해주세요");
+          return;
+        }
+
         fetchInstance()
           .post("api/v1/team/building", data)
           .then(() => {
             alert("저장되었습니다.");
             navigate(RouterPath.loading.getPath());
           })
-          .catch(() => {
+          .catch((err) => {
             alert("저장에 실패했습니다.");
+            console.log(err);
           });
       })
-      .catch(() => {
-        alert("중복된 팀 빌딩 요청이 있습니다. 다음 날에 다시 시도해주세요");
+      .catch((err) => {
+        alert("저장에 실패했습니다.");
+        console.log(err);
       });
   };
 

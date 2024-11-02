@@ -16,8 +16,8 @@ const initInstance = (config) => {
 };
 
 const BASE_URL = 'https://duoh.site/';
-export const fetchInstance = (baseURL) => {
+export const fetchInstance = () => {
     return initInstance({
-        baseURL: baseURL ?? BASE_URL,
+        baseURL: BASE_URL,
     });
 }
