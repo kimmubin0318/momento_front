@@ -20,4 +20,4 @@ export const fetchInstance = () => {
     return initInstance({
         baseURL: BASE_URL,
     });
-}
+};
