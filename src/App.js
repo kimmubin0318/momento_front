@@ -10,7 +10,7 @@ import MyPage from './pages/MyPage';
 import ConfigMyInfo from './pages/ConfigMyInfo';
 import TeamInfo from './pages/TeamInfo';
 import Start from './pages/Start';
-import Redirection from './components/Redirection.jsx';
+import Redirection from './pages/Redirection';
 import Loading from './pages/Loading';
 import MyPageEdit from './pages/MyPageEdit';
 import TeamBuilding from './pages/TeamBuilding';
