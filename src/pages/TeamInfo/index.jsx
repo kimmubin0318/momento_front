@@ -50,7 +50,7 @@ export default function TeamInfo() {
           <div key={index} className={style.memberList}>
             <div className={style.name}>{member.name}</div>
             <div className={style.partMail}>
-              {member.part} / {member.mail}
+              {member.position} / {member.email}
             </div>
           </div>
         ))}
