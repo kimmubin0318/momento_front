@@ -7,7 +7,7 @@ import questions from './questions';
 import styles from './index.module.scss';
 import MyInfoGet from '../../axios/MyInfoGet';
 import { fetchInstance } from '../../axios/instance.js';
-import RouterPath from '../../utils/path.js';
+import { RouterPath } from '../../utils/path.js';
 const ConfigMyInfo = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState({}); // 모든 질문을 상태로 관리
