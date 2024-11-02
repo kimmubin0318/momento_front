@@ -45,14 +45,16 @@ export default function TeamInfo() {
         <div>Team,</div>
         <div>{teams[selectedTeam].teamName}</div>
       </div>
-      {teams[selectedTeam].members.map((member, index) => (
-        <div key={index} className={style.memberList}>
-          <div className={style.name}>{member.name}</div>
-          <div className={style.partMail}>
-            {member.part} / {member.mail}
+      <div className={style.teamMemberInfo}>
+        {teams[selectedTeam].members.map((member, index) => (
+          <div key={index} className={style.memberList}>
+            <div className={style.name}>{member.name}</div>
+            <div className={style.partMail}>
+              {member.part} / {member.mail}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
