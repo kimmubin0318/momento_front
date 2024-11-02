@@ -117,9 +117,8 @@
         width: 390px;
     }
 }
-html {
-    background-image: linear-gradient(to bottom, #e0f7fa, #fce4ec);
 
+html {
     @media (min-width: 768px) {
         background: var(--bs-gray-900);
     }
