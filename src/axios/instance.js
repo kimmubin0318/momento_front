@@ -7,7 +7,7 @@ const initInstance = (config) => {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            // 'Authorization': `Bearer ${authSessionStorage.get()?.token ?? ''}`,
+            'Authorization': `Bearer ${localStorage.getItem('accessToken') ?? ''}`,
             ...config.headers,
         },
     });
