@@ -1,7 +1,11 @@
 @import '../../index.scss';
+// .backgroundColor {
+//     @extend %width-height-100;
+
 .LogoContainer {
     position: relative;
     top: 45px;
     font-size: 50px;
     font-family: 'yg-jalnan';
 }
+// }

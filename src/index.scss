@@ -10,6 +10,48 @@
     width: 100%;
     height: 100%;
 }
+// mypage 와 mypage-edit 중복
+%mypage-common {
+    @extend %flex-center;
+    flex-direction: column;
+    @extend %width-height-100;
+    gap: 0px;
+}
+%profile-common {
+    padding: 0;
+    margin: 0;
+    @extend %flex-center;
+    flex-direction: row;
+    height: 22%;
+    width: 100%;
+    gap: 30px;
+}
+%profileImg-common {
+    @extend %flex-center;
+    border-radius: 100px;
+    position: relative;
+    top: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: #d9d9d9;
+}
+%word-common {
+    @extend %flex-center;
+    width: 93%;
+    height: 81%;
+    border-radius: 20px;
+    background-color: white;
+}
+%info-common {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    width: 100%;
+    height: 77%;
+    gap: 20px;
+}
+
 // mypage에 중복되는 코드
 %cancel-and-complete-button {
     position: relative;
@@ -38,6 +80,23 @@
         transform: scale(0.98);
     }
 }
+%div-common {
+    font-family: 'yg-jalnan';
+    font-size: 20px;
+    color: #4a4a4a; // 텍스트 색상 변경
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+%input-common {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Pretendard', sans-serif;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+}
 :root {
     // 색
     --color-main: #756ab6; //임시 메인 컬러. 추후 바꿔야 해요
@@ -58,6 +117,7 @@
         width: 390px;
     }
 }
+
 html {
     @media (min-width: 768px) {
         background: var(--bs-gray-900);

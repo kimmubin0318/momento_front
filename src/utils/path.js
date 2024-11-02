@@ -20,6 +20,10 @@ export const RouterPath = {
             )}`;
         },
     },
+    Redirection: {
+        path: '/api/v1/auth/callback',
+        getPath: () => RouterPath.Redirection.path,
+    },
     mypage: {
         path: '/mypage',
         getPath: () => RouterPath.mypage.path,
