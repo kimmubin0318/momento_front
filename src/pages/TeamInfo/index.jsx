@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './style.module.scss';
 import line from '../MyPage/images/Line.png';
-import exit from './images/exit.png';
 import { dummyTeamList } from './dummyData';
 export default function TeamInfo() {
     const [selectedTeam, setSelectedTeam] = useState(null);
