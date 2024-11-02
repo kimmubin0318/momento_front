@@ -19,7 +19,7 @@ const Redirection = () => {
           // 응답에서 엑세스 토큰이나 사용자 이름을 받아 로컬에 저장
           localStorage.setItem("accessToken", response.data.accessToken);
 
-          navigate("/home"); // 로그인 후 이동할 페이지
+          navigate("/ConfigMyInfo"); // 로그인 후 이동할 페이지
         })
         .catch((error) => {
           console.error("카카오 로그인 실패:", error);

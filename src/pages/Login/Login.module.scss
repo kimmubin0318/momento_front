@@ -1,9 +1,9 @@
+@import "../../index.scss";
+
 .loginContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-center;
   padding: 20px;
+  flex-direction: column;
 
   .loginTitle {
     margin-bottom: 20%;
