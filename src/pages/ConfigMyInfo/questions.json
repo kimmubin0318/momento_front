@@ -1,19 +1,19 @@
 [
-  {
-    "id": 1,
-    "name": "stack",
-    "question": "기술 스택을 입력해주세요.",
-    "description": "ex) React, Node.js, Python"
-  },
-  {
-    "id": 2,
-    "name": "persona",
-    "question": "MBTI를 입력해주세요"
-  },
-  {
-    "id": 3,
-    "name": "ability",
-    "question": "자신의 역량을 평가하자면?",
-    "description": "상/중/하"
-  }
+    {
+        "id": 1,
+        "name": "stack",
+        "question": "기술 스택을 입력해주세요.",
+        "description": "ex) React, Node.js, Python"
+    },
+    {
+        "id": 2,
+        "name": "persona",
+        "question": "MBTI를 입력해주세요"
+    },
+    {
+        "id": 3,
+        "name": "ability",
+        "question": "자신의 역량을 평가하자면?",
+        "description": "상/중/하"
+    }
 ]
