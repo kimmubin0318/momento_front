@@ -1,57 +1,45 @@
-import { useNavigate } from 'react-router-dom';
-import MyInfoGet from '../../axios/MyInfoGet';
-import MyInfoPatch from '../../axios/MyInfoPatch';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 import style from './style.module.scss';
 import hr from './images/Line.png';
 export default function MyPageEdit() {
-    const { name, mail, persona, stack, ability } = MyInfoGet();
+    const [persona, setPersona] = useState('');
+    const [stack, setStack] = useState('');
+    const [ability, setAbility] = useState('');
     const router = useNavigate();
 
-    // 서버에서 받아온 값들을 useState로 관리
-    // 값들을 변경해서 다시 서버에 보낼 예정
-    const [changePersona, setChangePersona] = useState('');
-    const [changeAbility, setChangeAbility] = useState('');
-    const [changeStack, setChangeStack] = useState('');
-    // ability 값을 불러오기 전에 useState값을 넣으니
-    // 빈string 값이 반환돼서 useEffect 와 조건문을 사용하여 해결
-    // 어싱크 어웨잇 사용해도됨
-    useEffect(() => {
-        if (ability) {
-            setChangeAbility(ability);
-        }
-        if (persona) {
-            setChangePersona(persona);
-        }
-        if (stack) {
-            setChangeStack(stack);
-        }
-    }, [ability, persona, stack]);
-
-    const cancelButton = () => {
+    const backPage = () => {
         router(-1);
     };
-    const completeButton = async () => {
-        const changeData = {
-            stack: changeStack,
-            persona: changePersona,
-            ability: changeAbility,
-        };
-        await MyInfoPatch(changeData);
-        router('/mypage');
-    };
+    useEffect(() => {
+        const baseUrl = '/api/v1/member';
+        const endPoint = '/profile';
 
+        axios
+            .get(baseUrl + endPoint)
+            .then((res) => {
+                const data = res.data.data;
+                setPersona(data.data); // mbti
+                setStack(data.data); // 기술 스택
+                setAbility(data.data); // 능력 ( 상 중 하 )
+            })
+            .catch((error) => {
+                console.error(error.response.data.message);
+            });
+    });
     return (
         <div className={style.myPage}>
             {/* 상단 프로필 */}
             <div className={style.profile}>
-                <button className={style.cancel} onClick={cancelButton}>
+                <button className={style.cancel} onClick={backPage}>
                     <div className={style.word}>취소</div>
                 </button>
                 <div className={style.profileImg}>
                     {/* <img src={서버에서 받아오기} alt="" /> */}
                 </div>
-                <button className={style.complete} onClick={completeButton}>
+                <button className={style.complete} onClick={backPage}>
                     <div className={style.word}>완료</div>
                 </button>
             </div>
@@ -62,26 +50,24 @@ export default function MyPageEdit() {
             <div className={style.info}>
                 <div className={style.name}>
                     <p>이름 :</p>
-                    <input type="text" value={name} disabled />
+                    <input type="text" />
                 </div>
                 <div className={style.mail}>
                     <p>mail :</p>
-                    <input type="text" value={mail} disabled />
+                    <input type="text" />
                 </div>
                 <div className={style.mbti}>
                     <p>mbti :</p>
                     <input
                         type="text"
-                        defaultValue={persona}
-                        onChange={(e) => setChangePersona(e.target.value)}
+                        onChange={(e) => setPersona(e.target.value)}
                     />
                 </div>
                 <div className={style.stack}>
                     <p>기술 스택 :</p>
                     <input
                         type="text"
-                        defaultValue={stack}
-                        onChange={(e) => setChangeStack(e.target.value)}
+                        onChange={(e) => setStack(e.target.value)}
                     />
                 </div>
                 <div className={style.ability}>
@@ -89,39 +75,15 @@ export default function MyPageEdit() {
                     <>
                         <label>
                             상
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="상"
-                                checked={changeAbility === '상'}
-                                onChange={(e) =>
-                                    setChangeAbility(e.target.value)
-                                }
-                            />
+                            <input type="radio" name="ability" value="upper" />
                         </label>
                         <label>
                             중
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="중"
-                                checked={changeAbility === '중'}
-                                onChange={(e) =>
-                                    setChangeAbility(e.target.value)
-                                }
-                            />
+                            <input type="radio" name="ability" value="middle" />
                         </label>
                         <label>
                             하
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="하"
-                                checked={changeAbility === '하'}
-                                onChange={(e) =>
-                                    setChangeAbility(e.target.value)
-                                }
-                            />
+                            <input type="radio" name="ability" value="lower" />
                         </label>
                     </>
                 </div>

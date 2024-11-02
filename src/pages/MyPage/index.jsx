@@ -1,11 +1,30 @@
+import { useEffect, useState } from 'react';
+
+import axios from 'axios';
 import style from './style.module.scss';
 import hr from './images/Line.png';
 import { useNavigate } from 'react-router-dom';
-import MyInfoGet from '../../axios/MyInfoGet';
 export default function MyPage() {
-    const { name, mail, persona, stack, ability } = MyInfoGet();
+    const [persona, setPersona] = useState('');
+    const [stack, setStack] = useState('');
+    const [ability, setAbility] = useState('');
     const router = useNavigate();
+    useEffect(() => {
+        const baseUrl = '/api/v1/member';
+        const endPoint = '/profile';
 
+        axios
+            .get(baseUrl + endPoint)
+            .then((res) => {
+                const data = res.data.data;
+                setPersona(data.data); // mbti
+                setStack(data.data); // 기술 스택
+                setAbility(data.data); // 능력 ( 상 중 하 )
+            })
+            .catch((error) => {
+                console.error(error.response.data.message);
+            });
+    });
     const navigateEdit = () => {
         router('/mypage-edit');
     };
@@ -29,49 +48,40 @@ export default function MyPage() {
             <div className={style.info}>
                 <div className={style.name}>
                     <p>이름 :</p>
-                    <input type="text" value={name} disabled />
+                    <input type="text" />
                 </div>
                 <div className={style.mail}>
                     <p>mail :</p>
-                    <input type="text" value={mail} disabled />
+                    <input type="text" />
                 </div>
                 <div className={style.mbti}>
                     <p>mbti :</p>
-                    <input type="text" value={persona} disabled />
+                    <input
+                        type="text"
+                        onChange={(e) => setPersona(e.target.value)}
+                    />
                 </div>
                 <div className={style.stack}>
                     <p>기술 스택 :</p>
-                    <input type="text" value={stack} disabled />
+                    <input
+                        type="text"
+                        onChange={(e) => setStack(e.target.value)}
+                    />
                 </div>
                 <div className={style.ability}>
                     <p>능력 :</p>
                     <>
                         <label>
                             상
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="상"
-                                checked={ability === '상'}
-                            />
+                            <input type="radio" name="ability" value="upper" />
                         </label>
                         <label>
                             중
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="중"
-                                checked={ability === '중'}
-                            />
+                            <input type="radio" name="ability" value="middle" />
                         </label>
                         <label>
                             하
-                            <input
-                                type="radio"
-                                name="ability"
-                                value="하"
-                                checked={ability === '하'}
-                            />
+                            <input type="radio" name="ability" value="lower" />
                         </label>
                     </>
                 </div>
