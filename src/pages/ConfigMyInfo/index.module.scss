@@ -5,6 +5,15 @@
     height: 100%;
 }
 
+.question{
+    width: 80vw;
+}
+.description{
+    margin-top: 0.3rem;
+    font-size: var(--font-size-base);
+    color: gray;
+}
+
 .topContainer{
     display: flex;
     justify-content: space-between;
