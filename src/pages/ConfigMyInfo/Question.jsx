@@ -2,14 +2,15 @@ import { Card, Form } from "react-bootstrap";
 
 import styles from "./index.module.scss";
 
-const Question = ({ question, name, value, setValue }) => {
+const Question = ({ question, description, name, value, setValue }) => {
   const handleChange = (e) => {
     setValue((v) => ({ ...v, [name]: e.target.value }));
   };
 
   return (
     <>
-      <Card.Title>{question}</Card.Title>
+      <Card.Title className={styles.question}>{question}</Card.Title>
+      <div className={styles.description}>{description}</div>
       <Form>
         <Form.Group controlId={name}>
           <Form.Control
